@@ -1,0 +1,75 @@
+#include <iostream>
+using namespace std;
+
+// Сортировка для целых
+void sort(int *arr, int n)
+{
+	int temp = 0;
+	for (int i = 0; i < n - 1; i++)
+		for (int j = i + 1; j < n; j++)
+			if (arr[i] > arr[j])
+			{
+				temp = arr[j];
+				arr[j] = arr[i];
+				arr[i] = temp;
+			}
+}
+
+// Сортировка для дробных
+void sort(double *arr, int n)
+{
+	double temp = 0;
+	for (int i = 0; i < n - 1; i++)
+		for (int j = i + 1; j < n; j++)
+			if (arr[i] > arr[j])
+			{
+				temp = arr[j];
+				arr[j] = arr[i];
+				arr[i] = temp;
+			}
+}
+
+int main()
+{
+	unsigned int size = 0;
+
+	// Ввод размерности массива
+	cout << "Enter arrays size: ";
+	cin >> size;
+
+	// Проверка размера массива на отриц.значения
+	if (size <= 0)
+	{
+		cerr << "Error: size is signed." << endl;
+		return 1;
+	}
+
+	int* i_array = new int[size]; // Выделение памяти
+	double* d_array = new double[size];
+
+	// Заполнение
+	for (int i = 0; i < size; i++)
+	{
+		i_array[i] = size - i + 1;
+		d_array[i] = size - i + 1;
+	}
+
+	// Вывод значений массива
+	for (int i = 0; i < size; i++)
+	{
+		cout << "i_array[" << i << "]: " << i_array[i] << std::endl; // Целые
+	}
+	for (int i = 0; i < size; i++)
+	{
+		cout << "d_array[" << i << "]: " << d_array[i] << std::endl; // Дробные
+	}
+
+	sort(i_array, size);
+	sort(d_array, size);
+	cout << endl;
+
+	delete[] i_array;
+	delete[] d_array;
+
+	return 0;
+}
