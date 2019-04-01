@@ -1,0 +1,29 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <iostream>
+
+using namespace std;
+
+float a, b, c;
+char d;
+int p;
+int main()
+{
+	setlocale(LC_ALL, "Russian");
+
+		cout << "Первое число: ";
+		cin >> a;
+		cout << "Действие: ";
+		cin >> d;
+		cout << "Второе число: ";
+		cin >> b;
+		if (d == '+')
+			c = a + b;
+		if (d == '-')
+			c = a - b;
+		if (d == '*')
+			c = a * b;
+		if (d == '/')
+			c = a / b;
+		cout << "Результат = " << c << endl;
+		
+}
