@@ -1,0 +1,77 @@
+#include <iostream>
+
+class Figure											// Фигура
+{
+public:
+	virtual double getSquare() = 0;
+	virtual void showFigureType() = 0;
+};
+
+class Rectangle : public Figure							// Прямоугольник
+{
+private:
+	double width;
+	double height;
+public:
+	Rectangle(double w, double h) : width(w), height(h)
+	{
+	}
+	double getSquare() override
+	{
+		return width * height;
+	}
+	void showFigureType()
+	{
+		std::cout << "Rectangle" << std::endl;
+	}
+};
+
+class Quadrilateral : public Figure						// Четырехугольник	
+{
+private:
+	double a, b, c, d;
+public:
+	Quadrilateral(double r, double n, double m, double t) : a(r), b(n), c(m), d(t)
+	{
+	}
+	double getSquare() override
+	{
+		double k = ((a + b + c + d) / 2);
+		return sqrt((a-k) * (b - k) * (c - k) * (d - k));
+	}
+	void showFigureType()
+	{
+		std::cout << "Quadrilateral" << std::endl;
+	}
+};
+
+class Romb : public Figure						// Ромб
+{
+private:
+	double diagonal1, diagonal2;
+public:
+	Romb(double r, double e) : diagonal1(r), diagonal2(e)
+	{
+	}
+	double getSquare() override
+	{
+		return ((diagonal1 * diagonal2) / 2);
+	}
+	void showFigureType()
+	{
+		std::cout << "Romb" << std::endl;
+	}
+};
+
+int main()
+{
+	Rectangle rect(30, 50);
+	Quadrilateral QL(6, 7, 3, 8);
+	Romb romb(7, 7);
+
+	std::cout << "Rectangle square: " << rect.getSquare() << std::endl;
+	std::cout << "Quadrilateral square: " << QL.getSquare() << std::endl;
+	std::cout << "Romb square: " << romb.getSquare() << std::endl;
+
+	return 0;
+}
