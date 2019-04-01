@@ -1,0 +1,38 @@
+#include <iostream>
+#include <cmath>
+using namespace std; 
+
+int main()
+{
+	setlocale(LC_ALL, "Russian");
+	double a, b, n, m;
+
+	cout << "Введите a: ";
+	cin >> a;
+	cout << "Введите b: ";
+	cin >> b;
+
+	if (a >= b)
+	{
+		n = pow((a - b), 1.0 / 3.0);
+	}
+	else
+	{
+		n = (a, 2) + (a - b) / sin(a * b);
+	}
+	// Последнее выражение "n"
+
+	if (n < b)
+		m = ((n + a) / -b) + sqrt(pow(sin(a), 2) - cos(n));
+	else if (n == b)
+		m = pow(b, 2) + tan(n * a);
+	else 
+		m = pow(b, 3) + (n * pow(a, 2));
+	// Начальное выражение "m"
+
+	cout << "a = " << a << endl;
+	cout << "b = " << b << endl;
+	cout << "n = " << n << endl;
+	cout << "m = " << m << endl;
+
+}
