@@ -1,0 +1,57 @@
+#include <iostream>
+using namespace std;
+
+int *dan;
+int razmer;
+
+void mem();
+void filling();
+void show();
+void release();
+
+int main() 
+{
+tryAgain:
+	int a;
+	mem();
+	filling();
+	show();
+	release();
+
+	cout << "\n1 - Продолжить \n 2 - Выход";
+	cin >> a;
+
+	if (a == 1)
+		goto tryAgain;
+	else
+		exit(0);
+}
+
+// Выделяем память
+void mem()
+{
+	setlocale(LC_ALL, "Russian");
+	cout << "Ввести размерность массива: ";
+	cin >> razmer;
+	dan = new int[razmer];
+}
+// Заполняем массив
+void filling()
+{
+	for (int i = 0; i < razmer; i++)
+	{
+		cout << "dan[" << i << "]= ";
+		cin >> dan[i];
+	}
+}
+// Показываем данные 
+void show()
+{
+	for (int i = 0; i < razmer; i++)
+		cout << dan[i] << " ";
+}
+// Освобождаем память
+void release()
+{
+	delete[] dan;
+}
