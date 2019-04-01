@@ -1,0 +1,47 @@
+#include <iostream>
+using namespace std;
+
+class kniga {
+public:
+	char janr[20];
+	char avtor[30];
+	char name[40];
+	int god;
+	int price;
+
+	void set()
+	{
+		cout << "Введиите жанр: ";
+		cin >> janr;
+		cout << "Введите автора: ";
+		cin >> avtor;
+		cout << "Введите название: ";
+		cin >> name;
+		cout << "Введите год выпуска: ";
+		cin >> god;
+		cout << "Введите цену: ";
+		cin >> price;
+	}
+	void show()
+	{
+    setlocale(LC_ALL, "Russian");
+		cout << " Жанр: " << janr << endl;
+		cout << "Автор: " << avtor << endl;
+		cout << "Название: " << name << endl;
+		cout << "Год выпуска: " << god << endl;
+		cout << "Цена: " << price << endl;
+	}
+
+
+};
+
+int main()
+{
+  setlocale(LC_ALL, "Russian");
+	kniga n1;
+
+	n1.set();
+	n1.show();
+
+	return 0;
+}
