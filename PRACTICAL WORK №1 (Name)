@@ -1,0 +1,12 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	setlocale(LC_ALL, "Russian");
+	int name;
+	cout << "Введите своё имя \n";
+	cin >> name;
+	cout << "Привет, "<< name;
+	cin.get();
+}
