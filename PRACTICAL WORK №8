@@ -1,0 +1,18 @@
+#include <fstream>
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+	setlocale(LC_ALL, "Russian");
+	string text;
+	ofstream fout("file.txt"); 
+	cout << "Введите текст: ";
+	cin >> text; // запись строки в переменную
+	fout << text; // запись строки в файл
+	fout.close(); // закрываем файл
+
+	return 0;
+}
